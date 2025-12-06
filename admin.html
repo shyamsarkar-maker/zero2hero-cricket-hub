@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel – Zero2Hero Cricket Hub</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #0d0f1a;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .container {
+        width: 90%;
+        margin: auto;
+        padding: 15px;
+        background: #1a1f2e;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #00d46a;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        margin-top: 15px;
+        color: black;
+        font-weight: bold;
+    }
+
+    .success {
+        background: #08ca7e;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        display: none;
+        margin-top: 10px;
+    }
+
+</style>
+</head>
+<body>
+
+<h2>ADMIN PANEL – Zero2Hero Cricket Hub</h2>
+
+<div class="container">
+
+    <label>Match Title:</label>
+    <input type="text" id="title" placeholder="Match Title...">
+
+    <label>Team A Score:</label>
+    <input type="text" id="teamA" placeholder="Team A Score...">
+
+    <label>Team B Score:</label>
+    <input type="text" id="teamB" placeholder="Team B Score...">
+
+    <label>Custom Message (Optional):</label>
+    <textarea id="msg" rows="3" placeholder="Anything..."></textarea>
+
+    <button onclick="saveData()">Save / Update Score</button>
+
+    <div id="successMsg" class="success">Saved Successfully!</div>
+
+</div>
+
+<script>
+function saveData() {
+    let data = {
+        title: document.getElementById("title").value,
+        teamA: document.getElementById("teamA").value,
+        teamB: document.getElementById("teamB").value,
+        msg: document.getElementById("msg").value
+    };
+
+    localStorage.setItem("liveScore", JSON.stringify(data));
+
+    document.getElementById("successMsg").style.display = "block";
+
+    setTimeout(() => {
+        document.getElementById("successMsg").style.display = "none";
+    }, 2000);
+}
+</script>
+
+</body>
+</html>
