@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Admin Panel — Cricket Guessing Hub</title>
+
+    <!-- Neon Glow + 3D UI -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #020617, #00111f, #001a2f);
+            background-size: 400% 400%;
+            animation: bgMove 12s ease infinite;
+            font-family: "Poppins", sans-serif;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glow Text */
+        h1, h2 {
+            text-shadow: 0 0 10px rgba(0,255,255,0.6), 0 0 20px rgba(0,255,255,0.4);
+        }
+
+        /* Glass Card */
+        .container {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            box-shadow: 0 0 25px rgba(0,255,255,0.2);
+        }
+
+        /* Premium Buttons */
+        button {
+            background: linear-gradient(90deg, #00f7ff, #00ccff);
+            box-shadow: 0 4px 15px rgba(0,255,255,0.5);
+            transition: 0.3s;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,255,255,0.8);
+        }
+    </style>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Admin Login Box -->
+    <div class="container" id="admin-login-box">
+        <h1>Admin Login</h1>
+
+        <div class="form-group">
+            <label>Admin Password</label>
+            <input type="password" id="admin-password" placeholder="admin password">
+        </div>
+
+        <button id="btn-admin-login">Login</button>
+
+        <p class="note">Demo password: <b>admin123</b></p>
+    </div>
+
+    <!-- Admin Main Panel -->
+    <div class="container hidden" id="admin-panel">
+        <h1>Admin Panel</h1>
+
+        <!-- Coins Section -->
+        <h2>User ko Coins do</h2>
+        <div class="form-group">
+            <label>User Mobile (10 digit)</label>
+            <input type="tel" id="admin-mobile" placeholder="User mobile">
+        </div>
+        <div class="form-group">
+            <label>Coins add karo</label>
+            <input type="number" id="admin-coins" placeholder="e.g. 50">
+        </div>
+        <button id="btn-add-coins">Add Coins</button>
+        <p id="admin-msg" class="note"></p>
+
+        <hr style="margin:16px 0;border-color:rgba(148,163,184,0.4);">
+
+        <!-- Live TV Section -->
+        <h2>Live TV Link</h2>
+        <div class="form-group">
+            <label>Live Stream URL (YouTube embed, etc.)</label>
+            <input type="text" id="live-url" placeholder="https://...">
+        </div>
+        <button id="btn-save-live">Save Live TV</button>
+
+        <hr style="margin:16px 0;border-color:rgba(148,163,184,0.4);">
+
+        <!-- Matches Section -->
+        <h2>Matches (Add / Edit / Delete)</h2>
+
+        <input type="hidden" id="match-id">
+
+        <div class="form-group">
+            <label>Match Title</label>
+            <input type="text" id="match-title" placeholder="India vs Australia">
+        </div>
+        <div class="form-group">
+            <label>Time</label>
+            <input type="text" id="match-time" placeholder="7:30 PM">
+        </div>
+        <div class="form-group">
+            <label>Team 1</label>
+            <input type="text" id="match-team1" placeholder="Team 1">
+        </div>
+        <div class="form-group">
+            <label>Team 2</label>
+            <input type="text" id="match-team2" placeholder="Team 2">
+        </div>
+
+        <button id="btn-save-match">Save Match</button>
+
+        <h3 style="margin-top:16px;">All Matches</h3>
+        <ul id="matches-list-admin"></ul>
+
+        <hr style="margin:16px 0;border-color:rgba(148,163,184,0.4);">
+
+        <!-- Users List -->
+        <h2>Users & Coins</h2>
+        <ul id="users-list"></ul>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

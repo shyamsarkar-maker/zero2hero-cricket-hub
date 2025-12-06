@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Cricket Guessing Hub — Free Coin Guess Game</title>
+
+    <meta name="description"
+          content="Cricket Guessing Hub — free coin based cricket guessing game. Login with mobile, get free coins from admin and guess on live matches for fun. No real money." />
+    <meta name="theme-color" content="#020617" />
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- ========== AUTH CONTAINER (LOGIN / REGISTER) ========== -->
+    <div class="container" id="auth-container">
+        <h1>REGISTER / LOGIN</h1>
+
+        <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="mobile" placeholder="10 digit mobile" />
+        </div>
+
+        <div class="form-group">
+            <label>OTP (Demo: 1234)</label>
+            <input type="text" id="otp" placeholder="Enter OTP" />
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Set or enter password" />
+        </div>
+
+        <button id="btn-login">Register / Login</button>
+
+        <p class="note">
+            *Demo ke liye OTP fixed 1234 hai. Real OTP ke liye backend + SMS chahiye.
+        </p>
+    </div>
+
+    <!-- ========== MAIN GAME CONTAINER ========== -->
+    <div class="container hidden" id="game-container">
+
+        <!-- Top Bar: Brand + User Info -->
+        <div class="top-bar">
+            <h1>CRICKET GUESSING HUB</h1>
+
+            <div class="user-info">
+                <div id="user-mobile">Mobile: -</div>
+                <div id="user-coins">Coins: 0</div>
+                <button id="btn-logout">Logout</button>
+            </div>
+        </div>
+
+        <!-- LIVE TV SECTION -->
+        <div class="live-section">
+            <h2>Live Match (TV)</h2>
+            <p class="sub-text">
+                Ye sirf embed area hai. Admin legal live stream ka link admin panel se set karega.
+            </p>
+
+            <div class="live-frame-wrapper">
+                <div id="live-tv-empty">
+                    Admin ne abhi koi live link set nahi kiya hai.
+                </div>
+                <iframe id="live-tv-frame" src="" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- TODAY'S MATCHES -->
+        <div class="matches-section">
+            <h2>Aaj ke Matches</h2>
+            <p class="sub-text">
+                Neeche list me se match choose karke apni guess lagao. Har guess pe 1 coin use hoga.
+            </p>
+
+            <div id="matches-list">
+                <!-- JS se dynamic match cards aayenge -->
+            </div>
+        </div>
+
+        <!-- USER'S SAVED GUESSES -->
+        <div class="guesses-section">
+            <h2>My Saved Guesses</h2>
+            <ul id="my-guesses-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<a href="live-cricket.html" class="live-cricket-btn">
+    🏏 Live Cricket Panel
+</a>
